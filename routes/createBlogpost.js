@@ -31,6 +31,8 @@ router.get("/submit", (req, res) => {
     const queryParams = req.query; // ?title=ourTitle&text=ourText&author=ourAuthor // outputs: {title: 'words'}, etc.
     //custom IDs for our posts
     // let's make our posts a single spaceless string. (replace space with -)
+    // if two posts with the same title, it just updates the first one
+    // but you could do if (idFromTitle exists) {add -01}
     const idFromTitle = queryParams.title.replace(/\s+/g, "-").toLowerCase();
     blogposts
     .doc(idFromTitle) //put a string in here and it's a customm id

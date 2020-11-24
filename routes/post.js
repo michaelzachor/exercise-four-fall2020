@@ -25,7 +25,6 @@ router.get('/:id', (req, res) => {
     .then(function(doc) {
         if (doc.exists) {
             const data = doc.data(); //document data (author, text, title)
-            console.log(data);
             return res.send(data); // send data to the user who queries
         } else {
             return res.send("no doc exists");
